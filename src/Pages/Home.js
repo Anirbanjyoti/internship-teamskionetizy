@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Users from "./Users";
 import axios from "axios";
+import './Home.css'
 
 const Home = () => {
   const [users, setUsers] = useState([]);
@@ -13,11 +14,12 @@ const Home = () => {
     });
   }, []);
   return (
-    <div>
-      <h1>Skionetizy Team Members</h1>
-      {users.map((user) => (
-        <Users key={user.id} user={user}></Users>
-      ))}
+    <div className="container">
+      <div className="users">
+        {users.map((user) => (
+          <Users key={user.id} user={user}></Users>
+        ))}
+      </div>
     </div>
   );
 };

@@ -1,0 +1,7 @@
+.container{
+    padding:100px;
+}
+.users {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+}
