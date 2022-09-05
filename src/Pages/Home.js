@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import Users from "./Users";
 import axios from "axios";
 
 const Home = () => {
@@ -14,7 +15,9 @@ const Home = () => {
   return (
     <div>
       <h1>Skionetizy Team Members</h1>
-
+      {users.map((user) => (
+        <Users key={user.id} user={user}></Users>
+      ))}
     </div>
   );
 };
