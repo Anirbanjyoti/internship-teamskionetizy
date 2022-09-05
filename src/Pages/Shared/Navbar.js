@@ -9,7 +9,6 @@ const Navbar = () => {
               <h1>Skionetizy Team Members</h1>
             <ul>
                 <Link to='/'>All Members</Link>
-                <Link to='/manage'>Manage Members</Link>
             </ul>
         </div>
     );

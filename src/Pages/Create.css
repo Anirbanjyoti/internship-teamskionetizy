@@ -1,0 +1,31 @@
+form {
+    display: grid;
+    text-align: center;
+    /* width: 28%; */
+    border: 1px solid;
+    font-size: 21px;
+    margin: 10px;
+    padding: 60px;
+}
+form label {
+    text-align: left;
+    display: grid;
+}
+form label input {
+    width: 100%;
+    padding: 20px;
+}
+form label textarea {
+    width: 100%;
+    padding: 20px;
+}
+input[type="submit"] {
+    width: 50%;
+    padding: 10px;
+    background: aqua;
+    border-radius: 7px;
+    font-size: 22px;
+    border: 1px solid darkblue;
+    margin: 17px auto;
+    cursor: pointer;
+}
