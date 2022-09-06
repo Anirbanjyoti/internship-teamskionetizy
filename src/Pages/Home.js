@@ -2,12 +2,13 @@ import React, { useEffect, useState } from "react";
 import Users from "./Users";
 import axios from "axios";
 import "./Home.css";
-import "./Create.css"
+import "./Create.css";
 
 const Home = () => {
+  //get states
   const [users, setUsers] = useState([]);
   console.log(users);
-
+  // post state
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [address, setAddress] = useState("");
@@ -37,14 +38,48 @@ const Home = () => {
         setUsers(newObj);
       });
   };
+  //   Delete
+  // const getByID = (id) => {
+  //   const url = `https://jsonplaceholder.typicode.com/users/${id}`;
+  //   console.log(id);
+  //   axios.get(url).then((data) => {
+  //     const getData = data.data;
+  //     setDel(getData);
+  //     // setDel(getData);
+  //   });
+  // };  
+  const deleteHandler = (id) => {
+    const url = `https://jsonplaceholder.typicode.com/users/${id}`;
+    // console.log(id);
+    // localStorage.setItem("id", id);
 
+    if (window.confirm("Are you sure want to delete")) {
+      axios.delete(url).then((data) => {
+        const loadData = data.data;
+        console.log(loadData);
+        console.log(users);
+        setUsers(current=>current.filter(user=>{
+          return user.id !== id;
+        }))
+      });
+    }
+  };
+  // Update data
+  useEffect(() => {
+    setName(localStorage.getItem("name"));
+    setEmail(localStorage.getItem("email"));
+    setAddress(localStorage.getItem("address"));
+  }, []);
   return (
     <div className="container">
       <div className="usersSection">
         {users?.map((user) => (
-          <Users key={user.id} user={user}></Users>
+          <Users
+            key={user.id}
+            user={user}
+            deleteHandler={deleteHandler}
+          ></Users>
         ))}
-      
       </div>
       <div className="addMember">
         <div className="userForm">
